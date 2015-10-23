@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>DB parameters</comment>
+<entry key="mysqlTable">tabelao</entry>
+<entry key="mysqlDatabase">INMETRO_postprocesso</entry>
+<entry key="mysqlServer">localhost</entry>
+<entry key="mysqlUser">root</entry>
+<entry key="mysqlPassword">root</entry>
+</properties>

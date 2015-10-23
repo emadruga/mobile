@@ -1,0 +1,149 @@
+@CHARSET "UTF-8";
+
+.common {
+	border-radius: 3px;
+	-moz-border-radius: 3px; /* Firefox */
+	-webkit-border-radius: 3px; /* Safari and Chrome */
+	border: 1px solid #333;
+	display: table;
+	text-align: center;
+	font: 80% "Trebuchet MS", sans-serif;
+}
+
+.form {
+	background: #eee;
+}
+
+body {
+	margin: 0px auto;
+	width: 1000px;
+}
+
+#campaigns .ui-selecting {
+	background: #FECA40;
+}
+
+#campaigns .ui-selected {
+	background: #F39814;
+	color: white;
+}
+
+#campaignsIsonomia .ui-selecting {
+	background: #FECA40;
+}
+
+#campaignsIsonomia .ui-selected {
+	background: #F39814;
+	color: white;
+}
+
+#mobileproviders .ui-selecting {
+	background: #FECA40;
+}
+
+#mobileproviders .ui-selected {
+	background: #F39814;
+	color: white;
+}
+
+#mobileproviders {
+	list-style-type: none; 
+	margin: 0; 
+	padding: 0;
+}
+
+#mobileproviders li { 
+	margin: 3px; 
+	padding: 0.4em; 
+}
+
+#cityset .ui-selecting {
+	background: #FECA40;
+}
+
+#cityset .ui-selected {
+	background: #F39814;
+	color: white;
+}
+
+#cityset {
+	list-style-type: none; 
+	margin: 0; 
+	padding: 0;
+}
+
+#cityset li { 
+	margin: 3px; 
+	padding: 0.4em; 
+}
+
+#tecnologiaset .ui-selecting {
+	background: #FECA40;
+}
+
+#tecnologiaset .ui-selected {
+	background: #F39814;
+	color: white;
+}
+
+#tecnologiaset {
+	list-style-type: none; 
+	margin: 0; 
+	padding: 0;
+}
+
+#tecnologiaset li { 
+	margin: 3px; 
+	padding: 0.4em; 
+}
+
+#operationset .ui-selecting {
+	background: #FECA40;
+}
+
+#operationset .ui-selected {
+	background: #F39814;
+	color: white;
+}
+
+#operationset {
+	list-style-type: none; 
+	margin: 0; 
+	padding: 0;
+}
+
+#operationset li { 
+	margin: 3px; 
+	padding: 0.4em; 
+}
+
+#typeset .ui-button {
+	width: 100px;
+}
+
+#outputType {
+	padding: 1em; 
+}
+
+.loading {
+	display: table;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 10000000;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	background: #000000;
+	opacity: 0.6;
+}
+
+.loadingMessage {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 30px;
+	color: white;
+}
