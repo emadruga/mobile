@@ -9,11 +9,14 @@ public class SqlServerConnection extends MysqlConnection {
 
 	public void connect() {
 			// Conecta a SQL Server 2012 R2
+			String connStr = 	"jdbc:sqlserver://" + getServer() + "databaseName=" + getDatabase();
 			try 
 			{
-				Class.forName("net.sourceforge.jtds.jdbc.Driver");
-				setConnection (DriverManager.getConnection("jdbc:jtds:sqlserver://" + 
-													getServer() + "/" +  getDatabase(), getUsername(), getPassword() ) );
+				//Class.forName("net.sourceforge.jtds.jdbc.Driver");
+				//setConnection (DriverManager.getConnection("jdbc:jtds:sqlserver://" +
+				//             getServer() + "/" +  getDatabase(), getUsername(), getPassword() ) );
+				Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+				setConnection (DriverManager.getConnection(connStr, getUsername(), getPassword()) );
 				System.out.println("Conectado ao banco " + getDatabase() + " do servidor SQL Server " + getServer());
 			} 
 			catch (ClassNotFoundException e) 
@@ -22,6 +25,7 @@ public class SqlServerConnection extends MysqlConnection {
 			} 
 			catch (SQLException e) 
 			{
+				System.out.println("Erro ao conectar: " + connStr);
 				e.printStackTrace();
 			}
 
@@ -92,8 +96,8 @@ public class SqlServerConnection extends MysqlConnection {
 		this.table = properties.getTable();
 		*/
 		super(banco,pathToXml);
-		//setServer ("10.0.10.102");
-		setServer ("192.168.1.107");
+		setServer ("EWERTON-PC\\COPA2014;");
+		//setServer ("192.168.1.107");
 		//server = "127.0.0.1";
 		setDatabase (banco);
 		setUsername ("sa");
