@@ -74,6 +74,7 @@
 									<input type="radio" name="tipo" id="tipo5" value="ftp"><label for="tipo5">FTP Detalhado</label><br />
 									<input type="radio" name="tipo" id="tipo2" value="summary"><label for="tipo2">Taxa Sucesso</label><br />
 									<input type="radio" name="tipo" id="tipo6" value="percentiles"><label for="tipo6">Velocidade Media</label><br />
+									<input type="radio" name="tipo" id="tipo7" value="measurementReport"><label for="tipo7">PHY/LTE</label><br />						
 								</div>
 						</div>
 						<h3>Selecione a visao</h3>

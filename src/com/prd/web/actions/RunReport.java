@@ -291,6 +291,21 @@ public class RunReport extends HttpServlet {
 			factory.addTable("default", (TableModel) tableModel);
 		}
 		
+		if (map.get("tipo").equals("measurementReport"))
+		{
+			tableModel = Core.launchMeasurementReports(
+					(String) map.get("visao"),
+					(Boolean) map.get("anonimo"),
+					(Vector<String>) map.get("operadorasVetor"), 
+					(Vector<String>) map.get("operacoesVetor"), 
+					(Vector<String>) map.get("campanhasVetor"),
+					(HashMap<String, Integer>) map.get("tput"));
+
+			urlToReport = new URL("file:" + getServletContext().getRealPath("WEB-INF/reports/measurementReports.prpt"));
+			factory = new TableDataFactory();
+			factory.addTable("default", (TableModel) tableModel);
+		}
+		
 		if (map.get("tipo").equals("percentiles"))
 		{
 			tableModel = Core.percentiles(

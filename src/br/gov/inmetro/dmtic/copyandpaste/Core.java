@@ -295,13 +295,6 @@ public class Core {
 		}
 	}
 	
-	
-	
-	
-	
-	
-	
-	
 
 	private static HashMap<String, Vector<String>> agruparConsultas(Vector<String> campaignsList)
 	{
@@ -349,6 +342,29 @@ public class Core {
 
 		    	                	String key1 = ftp1.getOperatorName()+ftp1.getTecnologia()+ftp1.getLocalidade();
 		    	                	String key2 = ftp2.getOperatorName()+ftp2.getTecnologia()+ftp2.getLocalidade();
+		    	                	int compare = (key1).compareTo(key2);
+
+		    	                	return (compare == 0)? -1: compare;
+		    	                }
+		    	            });
+
+		    		sortedSet.addAll(collection);
+
+		    		return sortedSet;
+		        }
+				if (candidate instanceof MeasurementReport)
+				{
+		    		SortedSet<E> sortedSet = new TreeSet<E>(
+		    	            new Comparator<E>() 
+		    	            {
+		    	                @Override
+		    	                public int compare(E e1, E e2) 
+		    	                {
+		    	                	MeasurementReport rep1 = (MeasurementReport)e1;
+		    	                	MeasurementReport rep2 = (MeasurementReport)e2;
+
+		    	                	String key1 = rep1.getOperatorName()+rep1.getTecnologia()+rep1.getLocalidade()+rep1.getMsgInstant();
+		    	                	String key2 = rep2.getOperatorName()+rep2.getTecnologia()+rep2.getLocalidade()+rep2.getMsgInstant();
 		    	                	int compare = (key1).compareTo(key2);
 
 		    	                	return (compare == 0)? -1: compare;
@@ -515,6 +531,54 @@ public class Core {
 		return ftpTableModel;
 	}
 
+	public static TableModel launchMeasurementReports(String vizu, Boolean anonimo, Vector<String> operatorsSelected, Vector<String> operationsSelected, Vector<String> campaignsList, HashMap<String, Integer> tputMap) {
+
+		MeasurementReportTableModel measRepTableModel = new MeasurementReportTableModel();
+		Vector<MeasurementReport> allReports = new Vector<MeasurementReport>();
+
+		/**
+		 * Gerar dados
+		 */
+		
+		for (Entry<String,Vector<String>> pair: agruparConsultas(campaignsList).entrySet())
+		{
+			String banco = pair.getKey();
+			Vector<String> campanhas = pair.getValue();
+			for (String operator: operatorsSelected)
+			{
+				//if (tputMap.get("isonomia") == 1 && banco.equals("pe_pernambuco_4g") && operator.equals("CLARO")) continue;
+				//if (tputMap.get("isonomia") == 1 && banco.equals("rs_poa_3g") && operator.equals("TIM")) continue;
+
+				for (String operation: operationsSelected)
+				{
+					allReports.addAll(MeasurementReportGenerator.findMeasurementReports(banco, vizu, operator, operation, campanhas, tputMap));	
+				}
+			}
+		}
+
+		/**
+		 * Agrupar dados por operadora, tecnologia, cidade, operacao
+		 */
+
+		if (anonimo)
+		{
+			for (MeasurementReport mrep: agruparDados(allReports))
+			{
+				measRepTableModel.addAnonymous(mrep);
+			}
+		}
+		else
+		{
+			for (MeasurementReport mrep: agruparDados(allReports))
+			{
+				measRepTableModel.add(mrep);
+			}
+		}
+		
+		return measRepTableModel;
+	}
+	
+	
 	public static TableModel percentiles(String vizu, Boolean anonimo, Vector<String> operatorsSelected, Vector<String> operationsSelected, Vector<String> campaignsList, HashMap<String, Integer> tputMap) {
 
 		FTPPercentilesTableModel ftpPercentilesTableModel = new FTPPercentilesTableModel();

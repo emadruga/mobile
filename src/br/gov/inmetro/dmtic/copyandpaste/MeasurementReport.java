@@ -14,12 +14,9 @@ public class MeasurementReport {
 	private String longitude = null;
 	private String msgDate = null;
 	private String msgInstant = null;
-	private Integer numFailed = null;
-	private Integer numSuccess = null;
-	private String operations = null;
 	private String operatorName = null;
-	private String status = null;
 	private String tecnologia = null;
+	private Double rsrp = 0.0;
 
 	public String getApn() {
 		return apn;
@@ -45,24 +42,9 @@ public class MeasurementReport {
 		return msgInstant;
 	}
 
-	public int getNumFailed() {
-		return numFailed;
-	}
-
-	public int getNumSuccess() {
-		return numSuccess;
-	}
-
-	public String getOperations() {
-		return operations;
-	}
 
 	public String getOperatorName() {
 		return operatorName;
-	}
-
-	public String getStatus() {
-		return status;
 	}
 
 	public String getTecnologia() {
@@ -93,28 +75,20 @@ public class MeasurementReport {
 		this.msgInstant = msgInstant;
 	}
 
-	public void setNumFailed(int numFailed) {
-		this.numFailed = numFailed;
-	}
-
-	public void setNumSuccess(int numSuccess) {
-		this.numSuccess = numSuccess;
-	}
-
-	public void setOperations(String operations) {
-		this.operations = operations;
-	}
-
 	public void setOperatorName(String op) {
 		this.operatorName = op;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
 	public void setTecnologia(String tecnologia) {
 		this.tecnologia = tecnologia;
+	}
+
+	public Double getRSRP() {
+		return rsrp;
+	}
+
+	public void setRSRP(Double rsrp) {
+		this.rsrp = rsrp;
 	}
 
 }

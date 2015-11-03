@@ -29,15 +29,10 @@ public class MeasurementReportGenerator {
 		measRep.setOperatorName(resultSet.getString("OperatorName")); 
 		measRep.setLocalidade(Core.getLocalidade(resultSet.getStatement().getConnection().getMetaData().getURL()));  
 		measRep.setTecnologia(Core.getTecnologia(resultSet.getStatement().getConnection().getMetaData().getURL()));  
-		measRep.setNumSuccess(resultSet.getInt("numSuccess"));  
-		measRep.setNumFailed(resultSet.getInt("numFailed"));  
 		measRep.setApn(resultSet.getString("APN"));
-		measRep.setStatus(resultSet.getString("Status")); 
 		measRep.setLatitude(String.format("%f", resultSet.getFloat("Latitude")));
 		measRep.setLongitude(String.format("%f", resultSet.getFloat("Longitude")));
-		measRep.setMsgDate(resultSet.getString("msgDate")); 
 		measRep.setMsgInstant(resultSet.getString("msgInstant"));
-		measRep.setOperations(resultSet.getString("operation"));
 		
 		return measRep;
 	}

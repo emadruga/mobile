@@ -16,7 +16,7 @@ public class MeasurementReportTableModel extends DefaultTableModel implements IF
 	// A ordem é relevante para metodo ´add´ abaixo !!
 	private String[] columnNames_Base = { 
 			"Localidade","Tecnologia", "APN","Latitude", 
-			"Longitude", "msgInstant","RSRP" };
+			"Longitude", "msgInstant","RSRP","OperatorName" };
 
 	public Vector<Vector<Object>> data = new Vector<Vector<Object>>();
 
@@ -36,6 +36,7 @@ public class MeasurementReportTableModel extends DefaultTableModel implements IF
 		vector.add(measRep.getLongitude());
 		vector.add(measRep.getMsgInstant());
 		vector.add(measRep.getRSRP());
+		vector.add(measRep.getOperatorName());
 		
 		this.data.add(vector);
 
@@ -60,6 +61,7 @@ public class MeasurementReportTableModel extends DefaultTableModel implements IF
 		vector.add(measRep.getLongitude());
 		vector.add(measRep.getMsgInstant());
 		vector.add(measRep.getRSRP());
+		vector.add(measRep.getOperatorName());
 
 
 		this.data.add(vector);
