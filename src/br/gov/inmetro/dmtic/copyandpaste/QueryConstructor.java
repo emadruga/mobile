@@ -10,7 +10,14 @@ public class QueryConstructor {
 		String preparedQuery;
 		String query = QueryReader.retrieveQueryByName(queryNameUsed);
 
-		if (campaignsList != null)
+		if (operation == null)
+		{
+			preparedQuery = query.replace("WHERECLAUSULE",
+					conn.operatorsListFilter(operator) + " AND " +
+					conn.campaignListFilter(campaignsList));
+		}
+		
+		else if (campaignsList != null)
 		{
 			preparedQuery = query.replace("WHERECLAUSULE",
 					conn.operatorsListFilter(operator) + " AND " +

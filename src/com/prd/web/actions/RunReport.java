@@ -294,7 +294,7 @@ public class RunReport extends HttpServlet {
 		if (map.get("tipo").equals("measurementReport"))
 		{
 			tableModel = Core.launchMeasurementReports(
-					(String) map.get("visao"),
+					(String) "VIZU_LAYER1",
 					(Boolean) map.get("anonimo"),
 					(Vector<String>) map.get("operadorasVetor"), 
 					(Vector<String>) map.get("operacoesVetor"), 

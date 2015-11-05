@@ -546,13 +546,9 @@ public class Core {
 			Vector<String> campanhas = pair.getValue();
 			for (String operator: operatorsSelected)
 			{
-				//if (tputMap.get("isonomia") == 1 && banco.equals("pe_pernambuco_4g") && operator.equals("CLARO")) continue;
-				//if (tputMap.get("isonomia") == 1 && banco.equals("rs_poa_3g") && operator.equals("TIM")) continue;
+				allReports.addAll(MeasurementReportGenerator.findMeasurementReports(banco, vizu, operator, null, 
+						                                                            campanhas, tputMap));	
 
-				for (String operation: operationsSelected)
-				{
-					allReports.addAll(MeasurementReportGenerator.findMeasurementReports(banco, vizu, operator, operation, campanhas, tputMap));	
-				}
 			}
 		}
 
