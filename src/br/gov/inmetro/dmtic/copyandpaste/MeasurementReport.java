@@ -16,7 +16,7 @@ public class MeasurementReport {
 	private String msgInstant = null;
 	private String operatorName = null;
 	private String tecnologia = null;
-	private Double rsrp = 0.0;
+	private String rsrp = null;
 
 	public String getApn() {
 		return apn;
@@ -83,11 +83,11 @@ public class MeasurementReport {
 		this.tecnologia = tecnologia;
 	}
 
-	public Double getRSRP() {
+	public String getRSRP() {
 		return rsrp;
 	}
 
-	public void setRSRP(Double rsrp) {
+	public void setRSRP(String rsrp) {
 		this.rsrp = rsrp;
 	}
 

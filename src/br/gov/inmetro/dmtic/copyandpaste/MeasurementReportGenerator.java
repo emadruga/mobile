@@ -30,6 +30,7 @@ public class MeasurementReportGenerator {
 		measRep.setLocalidade(Core.getLocalidade(resultSet.getStatement().getConnection().getMetaData().getURL()));  
 		measRep.setTecnologia(Core.getTecnologia(resultSet.getStatement().getConnection().getMetaData().getURL()));  
 		measRep.setApn(resultSet.getString("APN"));
+		measRep.setRSRP(String.format("%6.2f", resultSet.getFloat("RSRP")));
 		measRep.setLatitude(String.format("%f", resultSet.getFloat("Latitude")));
 		measRep.setLongitude(String.format("%f", resultSet.getFloat("Longitude")));
 		measRep.setMsgInstant(resultSet.getString("msgTime"));
